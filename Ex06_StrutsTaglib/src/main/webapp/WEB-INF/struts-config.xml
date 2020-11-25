@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="welcomeActionForm" type="com.deepika.form.WelcomeActionForm"></form-bean>
+	</form-beans>
+	<action-mappings>
+		<action path="/welcome" type="com.deepika.action.WelcomeAction" name="welcomeActionForm" scope="session">
+			<forward name="landing" path="/welcome.jsp"></forward>
+		</action>
+		<action path="/landing" type="com.deepika.action.LandingAction" name="welcomeActionForm">
+			<forward name="landing" path="/landing.jsp"></forward>
+		</action>
+	</action-mappings>
+	
+	<message-resources parameter="Common" />
+
+</struts-config>

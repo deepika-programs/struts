@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+
+	<form-beans>
+		<form-bean name="authenticateActionForm" type="com.deepika.form.AuthenticateActionForm"></form-bean>
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="loginform" path="/WEB-INF/files/login.jsp"></forward>
+		<forward name="homePage" path="/index.jsp"></forward>
+	</global-forwards>
+	
+	<action-mappings>
+		<action path="/welcome" type="com.deepika.action.WelcomeAction">
+			<!-- no forward name has been given. But, from the action class, it can refer global-forward name -->
+		</action>
+		<action path="/login" type="com.deepika.action.LoginAction">
+			<forward name="loginPage" path="/WEB-INF/files/login.jsp"></forward>
+		</action>
+		<action path="/authenticate" input="/WEB-INF/files/login.jsp" type="com.deepika.action.AuthenticateAction" name="authenticateActionForm">
+			<forward name="landingPage" path="/WEB-INF/files/landing.jsp"></forward>
+		</action>
+	</action-mappings>
+	
+	
+	
+</struts-config>
